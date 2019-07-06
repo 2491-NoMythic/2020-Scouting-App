@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="NoMythic_Scouting_Base.MatchScouting01">
+    <ContentPage.Content>
+        <StackLayout Margin="20, 10, 20, 20">
+            <Label Text="Please enter match data"
+                   FontSize="Large"
+                   HorizontalOptions="Center"/>
+            <Picker x:Name="matchNameInput"
+                    Title="Input name"
+                    SelectedIndexChanged="MatchNameInput">
+                <Picker.Items>
+                 <x:String>Example</x:String>
+                 <x:String>Example2</x:String>
+                </Picker.Items>
+            </Picker>
+            <Editor Placeholder="Input match number"
+                    Completed="MatchInput"/>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Is there a schedule?"
+                       FontSize="Medium"/>
+                <Label Text="{Binding IsToggled, Source={x:Reference scheduleToggle}}"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Center"/>
+                <Switch x:Name="scheduleToggle" 
+                        VerticalOptions="Start"
+                        Toggled="DisplayRobotNum"/>
+            </StackLayout>
+            <Editor x:Name="matchTeamNumInput"
+                    Placeholder="Input team number"
+                    Completed="MatchTeamInput"/>
+            <Button Text="Next"
+                    VerticalOptions="EndAndExpand"
+                    Clicked="MatchScout02Init"
+                    BackgroundColor= "#ac68cc"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
