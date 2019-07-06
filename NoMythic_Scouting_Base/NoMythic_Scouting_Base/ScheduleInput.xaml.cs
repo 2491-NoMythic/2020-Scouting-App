@@ -13,6 +13,8 @@ namespace NoMythic_Scouting_Base
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ScheduleInput : ContentPage
     {
+        string schedule;
+
         public ScheduleInput()
         {
             InitializeComponent();
@@ -31,7 +33,7 @@ namespace NoMythic_Scouting_Base
             ScannerPage.OnScanResult += (result) => {
                 // Stop scanning
                 ScannerPage.IsScanning = false;
-                string schedule = result.Text;
+                schedule = result.Text;
 
                 // Alert with scanned code
                 Device.BeginInvokeOnMainThread(() => {
