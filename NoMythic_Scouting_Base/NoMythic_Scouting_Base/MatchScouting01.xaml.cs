@@ -14,6 +14,8 @@ namespace NoMythic_Scouting_Base
     {
         int matchNum;
         string matchTeamNum;
+        int deviceNum = 1;
+        private ScheduleInput scheduleInput;
 
         public MatchScouting01()
         {
@@ -36,13 +38,11 @@ namespace NoMythic_Scouting_Base
         {
             matchNum = Int32.Parse(((Editor)sender).Text);
             String matchNumFinal = ((Editor)sender).Text;
-        }
 
-        /*
-        int deviceNum = 1;
-        int foo = deviceNum + (matchNum - 1 * 6);
-        matchTeamNum = schedule.Split(',')[foo];
-        */
+            scheduleInput = new ScheduleInput();
+            int splitNum = deviceNum + ((matchNum - 1) * 6);
+            matchTeamNum = scheduleInput.Schedule.Split(',')[splitNum];
+        }      
 
         void DisplayRobotNum(object sender, EventArgs e)
         {
