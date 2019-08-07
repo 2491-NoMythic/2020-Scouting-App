@@ -6,18 +6,25 @@ using Xamarin.Forms;
 
 namespace NoMythic_Scouting_Base
 {
-    class Timer
+    public class Timer
     {
         Stopwatch mStopWatch = new Stopwatch();
+        private string timeSpent;
+
+        public string TimeSpent
+        {
+            get { return this.timeSpent; }
+        }
+
         public void Start()
         {
             mStopWatch.Start();
         }
-        void Stop()
+        public void Stop()
         {
             mStopWatch.Stop();
             long elapsed = mStopWatch.ElapsedMilliseconds;
-            String timeSpent = elapsed.ToString();
+            string timeSpent = elapsed.ToString();
             mStopWatch.Reset();
         }
     }

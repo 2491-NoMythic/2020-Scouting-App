@@ -12,6 +12,8 @@ namespace NoMythic_Scouting_Base
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MatchScouting05 : ContentPage
     {
+        public MatchScouting03 timerCall;
+
         public MatchScouting05()
         {
             InitializeComponent();
@@ -19,6 +21,7 @@ namespace NoMythic_Scouting_Base
 
         async void MatchScoutEndInit(object sender, EventArgs e)
         {
+            timerCall.MatchTimerStop();
             await Navigation.PushAsync(new MatchScoutingEnd());
         }
     }
