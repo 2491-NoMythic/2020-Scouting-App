@@ -13,22 +13,35 @@ namespace NoMythic_Scouting_Base
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MatchScouting03 : ContentPage
     {
-        public Timer timer;
+        //public Timer timer;
+        Stopwatch mStopWatch = new Stopwatch();
+        private string timeSpent;
+
+        public string TimeSpent
+        {
+            get { return this.timeSpent; }
+        }
 
         public MatchScouting03()
         {
             InitializeComponent();
-            timer.Start();
+            //timer.Start();
+            mStopWatch.Start();
         }
 
         public void MatchTimerStop()
         {
-            timer.Stop();
+            //timer.Stop();
+            mStopWatch.Stop();
+            long elapsed = mStopWatch.ElapsedMilliseconds;
+            string timeSpent = elapsed.ToString();
+            mStopWatch.Reset();
         }
 
         public string TimerTime()
         {
-            return timer.TimeSpent;
+            //return timer.TimeSpent;
+            return TimeSpent;
         }
 
         async void MatchScout04Init(object sender, EventArgs e)
