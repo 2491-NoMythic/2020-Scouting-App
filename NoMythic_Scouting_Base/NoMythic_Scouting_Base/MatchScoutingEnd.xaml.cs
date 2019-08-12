@@ -22,6 +22,7 @@ namespace NoMythic_Scouting_Base
         public MatchScoutingEnd()
         {
             InitializeComponent();
+            timeCall.MatchTimerStop();
             timeRecog.Text = timeCall.TimerTime();
         }
 
