@@ -17,13 +17,14 @@ namespace NoMythic_Scouting_Base
     public partial class MatchScoutingEnd : ContentPage
     {
         ZXingBarcodeImageView matchBarcode;
-        public MatchScouting03 timeCall;
+        Timer timer;
 
         public MatchScoutingEnd()
         {
             InitializeComponent();
-            timeCall.MatchTimerStop();
-            timeRecog.Text = timeCall.TimerTime();
+            timer = Timer.getInstance();
+            timer.Stop();
+            timeRecog.Text = timer.getTimeSpent();
         }
 
         private void MatchGenerateQR(object sender, EventArgs e)

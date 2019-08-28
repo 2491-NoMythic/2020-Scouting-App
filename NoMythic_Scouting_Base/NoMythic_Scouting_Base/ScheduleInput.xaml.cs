@@ -13,10 +13,21 @@ namespace NoMythic_Scouting_Base
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ScheduleInput : ContentPage
     {
-       private string scheduleString;
-       public string Schedule
+        private string scheduleString;
+        public static ScheduleInput scheduleInput;
+
+        public static ScheduleInput getInstance()
         {
-            get { return this.scheduleString; }
+            if (scheduleInput == null)
+            {
+                scheduleInput = new ScheduleInput();
+            }
+            return scheduleInput;
+        }
+
+        public string getSchedule()
+        {
+            return this.scheduleString;
         }
 
         public ScheduleInput()
