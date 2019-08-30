@@ -30,7 +30,7 @@ namespace NoMythic_Scouting_Base
             var picker = (Picker)sender;
             int selectedIndex = picker.SelectedIndex;
 
-            if (selectedIndex != -1)
+            if (selectedIndex != -1 && matchNameInput != null)
             {
                 matchNameInput = (string)picker.ItemsSource[selectedIndex];
             }
