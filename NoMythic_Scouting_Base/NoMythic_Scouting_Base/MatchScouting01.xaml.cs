@@ -40,8 +40,6 @@ namespace NoMythic_Scouting_Base
         {
             matchNum = Int32.Parse(((Editor)sender).Text);
             String matchNumFinal = ((Editor)sender).Text;
-
-            scheduleInput = new ScheduleInput();
             int splitNum = deviceNum + ((matchNum - 1) * 6);
             matchTeamNum = scheduleInput.getSchedule().Split(',')[splitNum];
         }      
