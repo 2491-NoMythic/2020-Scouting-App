@@ -12,6 +12,8 @@ namespace NoMythic_Scouting_Base
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PitScouting01 : ContentPage
     {
+        string pitNameInput;
+
         public PitScouting01()
         {
             InitializeComponent();
@@ -24,7 +26,7 @@ namespace NoMythic_Scouting_Base
 
             if (selectedIndex != -1)
             {
-                string pitNameInput = (string)picker.ItemsSource[selectedIndex];
+                pitNameInput = (string)picker.ItemsSource[selectedIndex];
             }
         }
 

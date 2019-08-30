@@ -14,6 +14,7 @@ namespace NoMythic_Scouting_Base
     {
         int matchNum;
         string matchTeamNum;
+        string matchNameInput;
         int deviceNum = 1;
         ScheduleInput scheduleInput;
 
@@ -31,7 +32,7 @@ namespace NoMythic_Scouting_Base
 
             if (selectedIndex != -1)
             {
-                string matchNameInput = (string)picker.ItemsSource[selectedIndex];
+                matchNameInput = (string)picker.ItemsSource[selectedIndex];
             }
         }
 

@@ -10,7 +10,7 @@
             <Label Text="Please enter match data"
                    FontSize="Large"
                    HorizontalOptions="Center"/>
-            <Picker x:Name="matchNameInput"
+            <Picker x:Name="matchNameInputPicker"
                     Title="Input name"
                     SelectedIndexChanged="MatchNameInput">
                 <Picker.Items>

@@ -10,7 +10,7 @@
             <Label Text="Please enter team data"
                    FontSize="Large"
                    HorizontalOptions="Center"/>
-            <Picker x:Name="pitNameInput"
+            <Picker x:Name="pitNameInputPicker"
                     Title="Input name"
                     SelectedIndexChanged="PitNameInput">
                 <Picker.Items>
