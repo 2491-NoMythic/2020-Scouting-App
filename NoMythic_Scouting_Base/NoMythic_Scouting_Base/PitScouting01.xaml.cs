@@ -12,11 +12,12 @@ namespace NoMythic_Scouting_Base
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PitScouting01 : ContentPage
     {
-        string pitNameInput;
+        PitSuperVar pitSuperVar;
 
         public PitScouting01()
         {
             InitializeComponent();
+            pitSuperVar = PitSuperVar.getInstance();
         }
 
         void PitNameInput(object sender, EventArgs e)
@@ -26,13 +27,13 @@ namespace NoMythic_Scouting_Base
 
             if (selectedIndex != -1)
             {
-                pitNameInput = (string)picker.SelectedItem;
+                pitSuperVar.pitNameInput = (string)picker.SelectedItem;
             }
         }
 
         void PitTeamInput(object sender, EventArgs e)
         {
-            string pitTeamNum = ((Editor)sender).Text;
+            pitSuperVar.pitTeamNum = ((Editor)sender).Text;
         }
 
         async void PitScout02Init(object sender, EventArgs e)
