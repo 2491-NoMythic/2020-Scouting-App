@@ -14,10 +14,12 @@ namespace NoMythic_Scouting_Base
     public partial class PitScoutingEnd : ContentPage
     {
         ZXingBarcodeImageView pitBarcode;
+        PitSuperVar pitSuperVar;
 
         public PitScoutingEnd()
         {
             InitializeComponent();
+            pitSuperVar = PitSuperVar.getInstance();
         }
 
         private void PitGenerateQR(object sender, EventArgs e)
@@ -31,7 +33,7 @@ namespace NoMythic_Scouting_Base
             pitBarcode.BarcodeFormat = ZXing.BarcodeFormat.QR_CODE;
             pitBarcode.BarcodeOptions.Width = 600;
             pitBarcode.BarcodeOptions.Height = 600;
-            pitBarcode.BarcodeValue = "example";
+            pitBarcode.BarcodeValue = pitSuperVar.pitTeamNum + pitSuperVar.pitNameInput;
 
             pitLayout.Children.Insert(0, pitBarcode);
         }
