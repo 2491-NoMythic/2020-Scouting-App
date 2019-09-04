@@ -14,7 +14,7 @@ namespace NoMythic_Scouting_Base
     {
         int matchNum;
         string matchTeamNum;
-        string matchNameInput;
+        string matchNameInputString;
         int deviceNum = 1;
         ScheduleInput scheduleInput;
 
@@ -30,9 +30,9 @@ namespace NoMythic_Scouting_Base
             var picker = (Picker)sender;
             int selectedIndex = picker.SelectedIndex;
 
-            if (selectedIndex != -1 && matchNameInput != null)
+            if (selectedIndex != -1)
             {
-                matchNameInput = (string)picker.ItemsSource[selectedIndex];
+                matchNameInputString = (string)picker.SelectedItem;
             }
         }
 
@@ -41,7 +41,10 @@ namespace NoMythic_Scouting_Base
             matchNum = Int32.Parse(((Editor)sender).Text);
             String matchNumFinal = ((Editor)sender).Text;
             int splitNum = deviceNum + ((matchNum - 1) * 6);
-            matchTeamNum = scheduleInput.getSchedule().Split(',')[splitNum];
+            if (scheduleInput.getSchedule() != null)
+            {
+                matchTeamNum = scheduleInput.getSchedule().Split(',')[splitNum];
+            }
         }      
 
         void DisplayRobotNum(object sender, EventArgs e)

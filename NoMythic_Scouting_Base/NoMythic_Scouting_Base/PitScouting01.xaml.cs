@@ -24,9 +24,9 @@ namespace NoMythic_Scouting_Base
             var picker = (Picker)sender;
             int selectedIndex = picker.SelectedIndex;
 
-            if (selectedIndex != -1 && pitNameInput != null)
+            if (selectedIndex != -1)
             {
-                pitNameInput = (string)picker.ItemsSource[selectedIndex];
+                pitNameInput = (string)picker.SelectedItem;
             }
         }
 
