@@ -31,5 +31,10 @@ namespace NoMythic_Scouting_Base
         {
             await Navigation.PushAsync(new ScheduleInput());
         }
+
+        async void ConfigInit(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Config());
+        }
     }
 }

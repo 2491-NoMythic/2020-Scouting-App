@@ -13,15 +13,16 @@ namespace NoMythic_Scouting_Base
     public partial class MatchScouting01 : ContentPage
     {
         int matchNum;
-        int deviceNum = 1;
         ScheduleInput scheduleInput;
         MatchSuperVar matchSuperVar;
+        Config config;
 
         public MatchScouting01()
         {
             InitializeComponent();
             scheduleInput = ScheduleInput.getInstance();
             matchSuperVar = MatchSuperVar.getInstance();
+            config = Config.getInstance();
             matchTeamNumInput.IsVisible = false;
         }
 
@@ -40,7 +41,7 @@ namespace NoMythic_Scouting_Base
         {
             matchNum = Int32.Parse(((Editor)sender).Text);
             matchSuperVar.matchNumFinal = ((Editor)sender).Text;
-            int splitNum = deviceNum + ((matchNum - 1) * 6);
+            int splitNum = config.deviceNum + ((matchNum - 1) * 6);
             if (scheduleInput.getSchedule() != null)
             {
                 matchSuperVar.matchTeamNum = scheduleInput.getSchedule().Split(',')[splitNum];

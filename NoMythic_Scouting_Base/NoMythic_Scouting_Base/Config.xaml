@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NoMythic_Scouting_Base.Config">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Device Number"
+                VerticalOptions="Start" 
+                FontSize="Medium"/>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="-"
+                        FontSize="Large"
+                        HorizontalOptions="Start"
+                        Clicked="subtractDeviceNum"/>
+                <Label x:Name="deviceNumCounter"
+                       Text="0"
+                       FontSize="Large"
+                       HorizontalOptions="CenterAndExpand"/>
+                <Button Text="+"
+                        FontSize="Large"
+                        HorizontalOptions="End"
+                        Clicked="addDeviceNum"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -26,6 +26,9 @@
                     VerticalOptions="FillAndExpand"
                     BackgroundColor="#d6b4e7"
                     Clicked="ScheduleInputInit"/>
+            <Button Text="Config"
+                    VerticalOptions="End"
+                    Clicked="ConfigInit"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
