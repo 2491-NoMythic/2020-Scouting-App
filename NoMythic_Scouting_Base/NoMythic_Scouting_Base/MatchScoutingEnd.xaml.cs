@@ -18,11 +18,13 @@ namespace NoMythic_Scouting_Base
     {
         ZXingBarcodeImageView matchBarcode;
         Timer timer;
+        MatchSuperVar matchSuperVar;
 
         public MatchScoutingEnd()
         {
             InitializeComponent();
             timer = Timer.getInstance();
+            matchSuperVar = MatchSuperVar.getInstance();
             timer.Stop();
             timeRecog.Text = timer.getTimeSpent();
         }
@@ -38,7 +40,7 @@ namespace NoMythic_Scouting_Base
             matchBarcode.BarcodeFormat = ZXing.BarcodeFormat.QR_CODE;
             matchBarcode.BarcodeOptions.Width = 600;
             matchBarcode.BarcodeOptions.Height = 600;
-            matchBarcode.BarcodeValue = "example";
+            matchBarcode.BarcodeValue = matchSuperVar.matchNumFinal + matchSuperVar.matchTeamNum + matchSuperVar.matchNameInputString;
 
             matchLayout.Children.Insert(0, matchBarcode);
         }
