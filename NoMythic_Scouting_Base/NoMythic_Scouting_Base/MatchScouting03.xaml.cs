@@ -22,6 +22,16 @@ namespace NoMythic_Scouting_Base
             timer.Start();
         }
 
+        public void toggleLineCross(object sender, EventArgs e)
+        {
+
+        }
+
+        private void initAutoShotMenu(object sender, EventArgs e)
+        {
+
+        }
+
         async void MatchScout04Init(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new MatchScouting04());

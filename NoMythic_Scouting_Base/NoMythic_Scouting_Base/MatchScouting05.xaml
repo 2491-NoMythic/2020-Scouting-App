@@ -7,13 +7,67 @@
              x:Class="NoMythic_Scouting_Base.MatchScouting05">
     <ContentPage.Content>
         <StackLayout Margin="20, 10, 20, 20">
-            <Label Text="Place endgame data collection here"
+            <Label Text="Endgame"
                    FontSize="Large"
-                   VerticalOptions="CenterAndExpand" 
+                   VerticalOptions="Start" 
                    HorizontalOptions="CenterAndExpand" />
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Robot Climb"
+                       FontSize="Medium"/>
+                <Label Text="{Binding IsToggled, Source={x:Reference robotClimb}}"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Center"/>
+                <Switch x:Name="robotClimb" 
+                        VerticalOptions="Start"
+                        Toggled="toggleRobotClimb"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Shield Generator Balanced"
+                       FontSize="Medium"/>
+                <Label Text="{Binding IsToggled, Source={x:Reference shieldGeneratorBalanced}}"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Center"/>
+                <Switch x:Name="shieldGeneratorBalanced" 
+                        VerticalOptions="Start"
+                        Toggled="toggleShieldGeneratorBalanced"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Robot Assisted"
+                       FontSize="Medium"/>
+                <Label Text="{Binding IsToggled, Source={x:Reference robotAssist}}"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Center"/>
+                <Switch x:Name="robotAssist" 
+                        VerticalOptions="Start"
+                        Toggled="toggleRobotAssist"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Assisted Robots"
+                       FontSize="Medium"/>
+                <Label Text="{Binding IsToggled, Source={x:Reference assistedRobots}}"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Center"/>
+                <Switch x:Name="assistedRobots" 
+                        VerticalOptions="Start"
+                        Toggled="toggleAssistedRobots"/>
+            </StackLayout>
+
+            <Picker x:Name="robotAssistNumber"
+                    Title="Number of Robots Assisted"
+                    SelectedIndexChanged="selectRobotAssistNumber">
+                <Picker.Items>
+                    <x:String>One Robot</x:String>
+                    <x:String>Two Robots</x:String>
+                </Picker.Items>
+            </Picker>
+
             <Button Text="End Match"
                     VerticalOptions="EndAndExpand"
-                    Clicked="MatchScoutEndInit"
+                    Clicked="MatchScoutNotesInit"
                     BackgroundColor= "#ac68cc"/>
         </StackLayout>
     </ContentPage.Content>

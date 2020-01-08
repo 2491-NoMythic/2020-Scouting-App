@@ -7,10 +7,36 @@
              x:Class="NoMythic_Scouting_Base.MatchScouting04">
     <ContentPage.Content>
         <StackLayout Margin="20, 10, 20, 20">
-            <Label Text="Place teleop data collection here"
+            <Label Text="Teleop"
                    FontSize="Large"
-                   VerticalOptions="CenterAndExpand" 
+                   VerticalOptions="Start" 
                    HorizontalOptions="CenterAndExpand" />
+
+            <Button Text="Ball Picked Up"
+                    Clicked="initTeleopShotMenu"/>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Control Panel Rotated"
+                       FontSize="Medium"/>
+                <Label Text="{Binding IsToggled, Source={x:Reference controlPanelRotate}}"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Center"/>
+                <Switch x:Name="controlPanelRotate" 
+                        VerticalOptions="Start"
+                        Toggled="toggleControlPanelRotate"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Control Panel Color Match"
+                       FontSize="Medium"/>
+                <Label Text="{Binding IsToggled, Source={x:Reference controlPanelColorMatch}}"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Center"/>
+                <Switch x:Name="controlPanelColorMatch" 
+                        VerticalOptions="Start"
+                        Toggled="toggleControlPanelColorMatch"/>
+            </StackLayout>
+
             <Button Text="Next"
                     VerticalOptions="EndAndExpand"
                     Clicked="MatchScout05Init"

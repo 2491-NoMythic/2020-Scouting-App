@@ -17,6 +17,21 @@ namespace NoMythic_Scouting_Base
             InitializeComponent();
         }
 
+        private void initAutoShotMenu(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toggleControlPanelRotate(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toggleControlPanelColorMatch(object sender, EventArgs e)
+        {
+
+        }
+
         async void MatchScout05Init(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new MatchScouting05());

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="NoMythic_Scouting_Base.MatchScoutingNotes">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Notes"
+                VerticalOptions="Start" 
+                HorizontalOptions="CenterAndExpand" />
+
+            <Editor x:Name="autoEditor"
+                    Placeholder="Enter Auto Notes Here"
+                    Completed="autoNotes"/>
+
+            <Editor x:Name="teleopEditor"
+                    Placeholder="Enter Teleop Notes Here"
+                    Completed="teleopNotes"/>
+
+            <Editor x:Name="endgameEditor"
+                    Placeholder="Enter Endgame Notes Here"
+                    Completed="endgameNotes"/>
+
+            <Label Text="Defense"
+                   FontSize="Medium"/>
+
+            <Slider Minimum="0"
+                    Maximum="10"/>
+
+            <Button Text="Process Data"
+                    VerticalOptions="EndAndExpand"
+                    Clicked="MatchScoutEndInit"
+                    BackgroundColor="#ac68cc"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

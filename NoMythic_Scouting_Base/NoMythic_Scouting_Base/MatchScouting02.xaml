@@ -7,43 +7,22 @@
              x:Class="NoMythic_Scouting_Base.MatchScouting02">
     <ContentPage.Content>
         <StackLayout Margin="20, 10, 20, 20">
-            <Label Text="Place pregame data collection here"
+            <Label Text="Pre Game"
                    FontSize="Large"
                    VerticalOptions="Start" 
                    HorizontalOptions="CenterAndExpand" />
-            <Label x:Name="exText"
-                   Text="Example fields:"
-                   FontSize="Medium"
-                   VerticalOptions="Start"/>
-            <Button Text="example"
-                    Clicked="doReveal"
-                    BackgroundColor="#aabbcc"/>
-            <Slider Minimum="0"
-                    Maximum="10"/>
-            <Picker x:Name="exPicker"
-                    Title="subsystems ex"
-                    SelectedIndexChanged="exPickerMove">
+
+            <Picker x:Name="preloadedElementNumber"
+                    Title="Number of Preloaded Elements"
+                    SelectedIndexChanged="selectPreloadedElementNumber">
                 <Picker.Items>
-                 <x:String>drivetrain</x:String>
-                 <x:String>hughThrower</x:String>
-                 <x:String>meme</x:String>
+                    <x:String>One Ball</x:String>
+                    <x:String>Two Balls</x:String>
+                    <x:String>Three Balls</x:String>
                 </Picker.Items>
             </Picker>
-            <Editor x:Name="exEditor"
-                    BackgroundColor="#a1b2c3"
-                    Placeholder="lmao joe mama"
-                    Completed="doEditorExample"/>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="clicc for socialism"
-                       FontSize="Medium"/>
-                <Label Text="{Binding IsToggled, Source={x:Reference naeNaer}}"
-                       HorizontalOptions="EndAndExpand"
-                       VerticalOptions="Center"/>
-                <Switch x:Name="naeNaer" 
-                        VerticalOptions="Start"
-                        Toggled="getNaeNaed"/>
-            </StackLayout>
-            <Button Text="Start Match"
+
+                <Button Text="Start Match"
                     VerticalOptions="EndAndExpand"
                     Clicked="MatchScout03Init"
                     BackgroundColor= "#ac68cc"/>

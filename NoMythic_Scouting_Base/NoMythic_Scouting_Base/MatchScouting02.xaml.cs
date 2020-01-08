@@ -17,24 +17,9 @@ namespace NoMythic_Scouting_Base
             InitializeComponent();
         }
 
-        public void doEditorExample(object sender, EventArgs e)
+        public void selectedPreloadedElementNumber(object sender, EventArgs e)
         {
-            exText.Text = exEditor.Text;
-        }
 
-        public void exPickerMove(object sender, EventArgs e)
-        {
-            
-        }
-
-        public void doReveal(object sender, EventArgs e)
-        {
-            exText.Text = "lmao";
-        }
-
-        public void getNaeNaed(object sender, EventArgs e)
-        {
-            exText.Text = "get nae naed boomer";
         }
 
         async void MatchScout03Init(object sender, EventArgs e)
