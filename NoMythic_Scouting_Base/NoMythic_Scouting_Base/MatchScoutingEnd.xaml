@@ -8,9 +8,6 @@
     <ContentPage.Content>
         <StackLayout Margin="20, 10, 20, 20"
                      x:Name="matchLayout">
-            <Label x:Name="timeRecog"
-                   Text=""
-                   VerticalOptions="Start"/>
             <Button Text="Generate QR code"
                     VerticalOptions="EndAndExpand"
                     Clicked="MatchGenerateQR"/>

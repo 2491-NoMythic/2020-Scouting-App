@@ -23,11 +23,24 @@
                     Placeholder="Enter Endgame Notes Here"
                     Completed="endgameNotes"/>
 
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Robot traveled under control panel"
+                       FontSize="Medium"/>
+                <Label Text="{Binding IsToggled, Source={x:Reference controlPanelCrossing}}"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Center"/>
+                <Switch x:Name="controlPanelCrossing" 
+                        VerticalOptions="Start"
+                        Toggled="toggleControlPanelCrossing"/>
+            </StackLayout>
+
             <Label Text="Defense"
                    FontSize="Medium"/>
 
-            <Slider Minimum="0"
-                    Maximum="10"/>
+            <Slider x:Name="defense"
+                    Minimum="0"
+                    Maximum="10"
+                    ValueChanged="slideDefense"/>
 
             <Button Text="Process Data"
                     VerticalOptions="EndAndExpand"

@@ -14,17 +14,33 @@ namespace NoMythic_Scouting_Base
     public partial class MatchScouting03 : ContentPage
     {
         Timer timer;
+        MatchSuperVar matchSuperVar;
 
         public MatchScouting03()
         {
             InitializeComponent();
+            matchSuperVar = MatchSuperVar.getInstance();
             timer = Timer.getInstance();
             timer.Start();
+
+            autoBallStorageCounter.Text = matchSuperVar.autoBallStorageNumber.ToString();
         }
 
         public void toggleLineCross(object sender, EventArgs e)
         {
+            matchSuperVar.lineCrossed = true;
+        }
 
+        public void ballIntakeGain(object sender, EventArgs e)
+        {
+            matchSuperVar.autoBallStorageNumber = matchSuperVar.autoBallStorageNumber++;
+            autoBallStorageCounter.Text = matchSuperVar.autoBallStorageNumber.ToString();
+        }
+
+        public void ballIntakeLoss(object sender, EventArgs e)
+        {
+            matchSuperVar.autoBallStorageNumber = matchSuperVar.autoBallStorageNumber--;
+            autoBallStorageCounter.Text = matchSuperVar.autoBallStorageNumber.ToString();
         }
 
         private void initAutoShotMenu(object sender, EventArgs e)

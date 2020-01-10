@@ -26,7 +26,6 @@ namespace NoMythic_Scouting_Base
             timer = Timer.getInstance();
             matchSuperVar = MatchSuperVar.getInstance();
             timer.Stop();
-            timeRecog.Text = timer.getTimeSpent();
         }
 
         private void MatchGenerateQR(object sender, EventArgs e)

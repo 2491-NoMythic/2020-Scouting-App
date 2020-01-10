@@ -23,7 +23,20 @@
                         Toggled="toggleLineCross"/>
             </StackLayout>
 
-            <Button Text="Robot made a shot on goal"
+            <StackLayout Orientation="Horizontal">
+                <Button Text="-"
+                        FontSize="Large"
+                        Clicked="ballIntakeGain"/>
+                <Label x:Name="autoBallStorageCounter"
+                       Text="0"
+                       FontSize="Large"
+                       VerticalOptions="Center"/>
+                <Button Text="+"
+                        FontSize="Large"
+                        Clicked="ballIntakeLoss"/>
+            </StackLayout>
+
+            <Button Text="Robot is preparing to shoot"
                     Clicked="initAutoShotMenu"/>
 
             <Button Text="Next"
