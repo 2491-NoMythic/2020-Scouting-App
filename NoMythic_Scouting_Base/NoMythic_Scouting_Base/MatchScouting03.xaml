@@ -26,18 +26,32 @@
             <StackLayout Orientation="Horizontal">
                 <Button Text="-"
                         FontSize="Large"
-                        Clicked="ballIntakeGain"/>
+                        Clicked="autoBallIntakeGain"/>
                 <Label x:Name="autoBallStorageCounter"
                        Text="0"
                        FontSize="Large"
                        VerticalOptions="Center"/>
                 <Button Text="+"
                         FontSize="Large"
-                        Clicked="ballIntakeLoss"/>
+                        Clicked="autoBallIntakeLoss"/>
             </StackLayout>
 
-            <Button Text="Robot is preparing to shoot"
-                    Clicked="initAutoShotMenu"/>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Ball Dropped"
+                        FontSize="Large"
+                        Clicked="autoBallDropped"/>
+                <StackLayout Orientation="Vertical">
+                    <Button Text="Ball Scored Inner"
+                        FontSize="Large"
+                        Clicked="autoBallScoredInner"/>
+                    <Button Text="Ball Scored Outer"
+                        FontSize="Large"
+                        Clicked="autoBallScoredOuter"/>
+                    <Button Text="Ball Scored Bottom"
+                        FontSize="Large"
+                        Clicked="autoBallScoredBottom"/>
+                </StackLayout>
+            </StackLayout>
 
             <Button Text="Next"
                     VerticalOptions="EndAndExpand"

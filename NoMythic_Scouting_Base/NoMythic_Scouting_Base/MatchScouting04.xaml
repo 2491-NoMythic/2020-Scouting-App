@@ -12,8 +12,35 @@
                    VerticalOptions="Start" 
                    HorizontalOptions="CenterAndExpand" />
 
-            <Button Text="Ball Picked Up"
-                    Clicked="initTeleopShotMenu"/>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="-"
+                        FontSize="Large"
+                        Clicked="teleopBallIntakeGain"/>
+                <Label x:Name="teleopBallStorageCounter"
+                       Text="0"
+                       FontSize="Large"
+                       VerticalOptions="Center"/>
+                <Button Text="+"
+                        FontSize="Large"
+                        Clicked="teleopBallIntakeLoss"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Ball Dropped"
+                        FontSize="Large"
+                        Clicked="teleopBallDropped"/>
+                <StackLayout Orientation="Vertical">
+                    <Button Text="Ball Scored Inner"
+                        FontSize="Large"
+                        Clicked="teleopBallScoredInner"/>
+                    <Button Text="Ball Scored Outer"
+                        FontSize="Large"
+                        Clicked="teleopBallScoredOuter"/>
+                    <Button Text="Ball Scored Bottom"
+                        FontSize="Large"
+                        Clicked="teleopBallScoredBottom"/>
+                </StackLayout>
+            </StackLayout>
 
             <StackLayout Orientation="Horizontal">
                 <Label Text="Control Panel Rotated"

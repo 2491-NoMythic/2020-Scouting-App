@@ -23,7 +23,7 @@ namespace NoMythic_Scouting_Base
             timer = Timer.getInstance();
             timer.Start();
 
-            autoBallStorageCounter.Text = matchSuperVar.autoBallStorageNumber.ToString();
+            autoBallStorageCounter.Text = matchSuperVar.ballStorageNumber.ToString();
         }
 
         public void toggleLineCross(object sender, EventArgs e)
@@ -31,21 +31,66 @@ namespace NoMythic_Scouting_Base
             matchSuperVar.lineCrossed = true;
         }
 
-        public void ballIntakeGain(object sender, EventArgs e)
+        public void autoBallIntakeGain(object sender, EventArgs e)
         {
-            matchSuperVar.autoBallStorageNumber = matchSuperVar.autoBallStorageNumber++;
-            autoBallStorageCounter.Text = matchSuperVar.autoBallStorageNumber.ToString();
+            matchSuperVar.ballStorageNumber++;
+            autoBallStorageCounter.Text = matchSuperVar.ballStorageNumber.ToString();
+
+            matchSuperVar.autoPickups.Add(new MatchSuperVar.Pickup { pickupTime = timer.getTime() });
         }
 
-        public void ballIntakeLoss(object sender, EventArgs e)
+        public void autoBallIntakeLoss(object sender, EventArgs e)
         {
-            matchSuperVar.autoBallStorageNumber = matchSuperVar.autoBallStorageNumber--;
-            autoBallStorageCounter.Text = matchSuperVar.autoBallStorageNumber.ToString();
+            if (matchSuperVar.ballStorageNumber > 0)
+            {
+                matchSuperVar.ballStorageNumber--;
+                autoBallStorageCounter.Text = matchSuperVar.ballStorageNumber.ToString();
+
+                matchSuperVar.autoPickups.RemoveAt(matchSuperVar.teleopPickups.Count - 1);
+            }
         }
 
-        private void initAutoShotMenu(object sender, EventArgs e)
+        private void autoBallDropped(object sender, EventArgs e)
         {
+            if(matchSuperVar.ballStorageNumber > 0)
+            {
+                matchSuperVar.ballStorageNumber--;
+                autoBallStorageCounter.Text = matchSuperVar.ballStorageNumber.ToString();
 
+                matchSuperVar.autoDrops.Add(new MatchSuperVar.Drop { dropTime = timer.getTime() });
+            }
+        }
+
+        private void autoBallScoredInner(object sender, EventArgs e)
+        {
+            if (matchSuperVar.ballStorageNumber > 0)
+            {
+                matchSuperVar.ballStorageNumber--;
+                autoBallStorageCounter.Text = matchSuperVar.ballStorageNumber.ToString();
+                matchSuperVar.autoScores.Add(new MatchSuperVar.Score { scoreTime = timer.getTime(), scoreLocation = "Inner" });
+            }
+        }
+
+        private void autoBallScoredOuter(object sender, EventArgs e)
+        {
+            if (matchSuperVar.ballStorageNumber > 0)
+            {
+                matchSuperVar.ballStorageNumber--;
+                autoBallStorageCounter.Text = matchSuperVar.ballStorageNumber.ToString();
+
+                matchSuperVar.autoScores.Add(new MatchSuperVar.Score { scoreTime = timer.getTime(), scoreLocation = "Outer" });
+            }
+        }
+
+        private void autoBallScoredBottom(object sender, EventArgs e)
+        {
+            if (matchSuperVar.ballStorageNumber > 0)
+            {
+                matchSuperVar.ballStorageNumber--;
+                autoBallStorageCounter.Text = matchSuperVar.ballStorageNumber.ToString();
+
+                matchSuperVar.autoScores.Add(new MatchSuperVar.Score { scoreTime = timer.getTime(), scoreLocation = "Bottom" });
+            }
         }
 
         async void MatchScout04Init(object sender, EventArgs e)

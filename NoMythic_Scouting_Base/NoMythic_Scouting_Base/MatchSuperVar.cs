@@ -8,8 +8,33 @@ namespace NoMythic_Scouting_Base
     {
         private static MatchSuperVar matchSuperVar;
 
+        //Ball Interaction Classes and Arrays
+        public class Pickup
+        {
+            public string pickupTime { get; set; }
+        }
+
+        public class Drop
+        {
+            public string dropTime { get; set; }
+        }
+
+        public class Score
+        {
+            public string scoreTime { get; set; }
+            public string scoreLocation { get; set; }
+        }
+
+        public List<Pickup> autoPickups = new List<Pickup>();
+        public List<Drop> autoDrops = new List<Drop>();
+        public List<Score> autoScores = new List<Score>();
+
+        public List<Pickup> teleopPickups = new List<Pickup>();
+        public List<Drop> teleopDrops = new List<Drop>();
+        public List<Score> teleopScores = new List<Score>();
+
         //AppData
-        public int autoBallStorageNumber = 0;
+        public int ballStorageNumber = 0;
 
         //QR Data
             //Opening Screen
