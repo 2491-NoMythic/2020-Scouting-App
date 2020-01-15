@@ -24,23 +24,23 @@ namespace NoMythic_Scouting_Base
 
         public void toggleRobotClimb(object sender, EventArgs e) 
         {
-            matchSuperVar.robotClimbed = true;
+            matchSuperVar.robotClimbed = "a";
         }
 
         public void toggleShieldGeneratorBalanced(object sender, EventArgs e)
         {
-            matchSuperVar.shieldGeneratorBalanced = true;
+            matchSuperVar.shieldGeneratorBalanced = "a";
         }
 
         public void toggleRobotAssist(object sender, EventArgs e) 
         {
-            matchSuperVar.robotAssisted = true;
-            robotAssistNumber.IsVisible = true;
+            matchSuperVar.robotAssisted = "a";
         }
 
         public void toggleAssistedRobots(object sender, EventArgs e)
         {
-            matchSuperVar.assistedRobots = true;
+            matchSuperVar.assistedRobots = "a";
+            robotAssistNumber.IsVisible = true;
         }
 
         public void selectRobotAssistNumber(object sender, EventArgs e)
@@ -50,7 +50,7 @@ namespace NoMythic_Scouting_Base
 
             if (selectedIndex != -1)
             {
-                matchSuperVar.robotAssistAmount = (string)picker.ItemsSource[selectedIndex];
+                matchSuperVar.robotAssistAmount = (selectedIndex + 1).ToString();
             }
         }
 

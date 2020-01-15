@@ -28,7 +28,7 @@ namespace NoMythic_Scouting_Base
             if(selectedIndex != -1)
             {
                 matchSuperVar.ballStorageNumber = (selectedIndex + 1);
-                matchSuperVar.preloadedElementAmount = (string)picker.ItemsSource[selectedIndex];
+                matchSuperVar.preloadedElementAmount = (selectedIndex + 1).ToString();
             }
         }
 

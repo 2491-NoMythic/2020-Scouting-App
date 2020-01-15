@@ -41,7 +41,7 @@ namespace NoMythic_Scouting_Base
 
         public void toggleControlPanelCrossing(object sender, EventArgs e)
         {
-            matchSuperVar.controlPanelCrossing = true;
+            matchSuperVar.controlPanelCrossing = "a";
         }
 
         async void MatchScoutEndInit(object sender, EventArgs e)

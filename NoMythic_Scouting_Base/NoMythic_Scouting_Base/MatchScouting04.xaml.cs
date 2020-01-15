@@ -23,6 +23,18 @@ namespace NoMythic_Scouting_Base
             teleopBallStorageCounter.Text = matchSuperVar.ballStorageNumber.ToString();
         }
 
+        delegate void TeleopVoidFunc();
+
+        private void teleopGenericInteraction(int ballChange, TeleopVoidFunc updateTeleopList)
+        {
+            if (matchSuperVar.ballStorageNumber > 0)
+            {
+                matchSuperVar.ballStorageNumber += ballChange;
+                teleopBallStorageCounter.Text = matchSuperVar.ballStorageNumber.ToString();
+                updateTeleopList();
+            }
+        }
+
         private void teleopBallIntakeGain(object sender, EventArgs e)
         {
             matchSuperVar.ballStorageNumber++;
@@ -33,67 +45,37 @@ namespace NoMythic_Scouting_Base
 
         private void teleopBallIntakeLoss(object sender, EventArgs e)
         {
-            if (matchSuperVar.ballStorageNumber > 0)
-            {
-                matchSuperVar.ballStorageNumber--;
-                teleopBallStorageCounter.Text = matchSuperVar.ballStorageNumber.ToString();
-
-                matchSuperVar.teleopPickups.RemoveAt(matchSuperVar.teleopPickups.Count - 1);
-            }
+            teleopGenericInteraction(-1, () => matchSuperVar.teleopPickups.RemoveAt(matchSuperVar.teleopPickups.Count - 1));
         }
 
         private void teleopBallDropped(object sender, EventArgs e)
         {
-            if (matchSuperVar.ballStorageNumber > 0)
-            {
-                matchSuperVar.ballStorageNumber--;
-                teleopBallStorageCounter.Text = matchSuperVar.ballStorageNumber.ToString();
-
-                matchSuperVar.teleopDrops.Add(new MatchSuperVar.Drop { dropTime = timer.getTime() });
-            }
+            teleopGenericInteraction(-1, () => matchSuperVar.teleopDrops.Add(new MatchSuperVar.Drop { dropTime = timer.getTime() }));
         }
 
         private void teleopBallScoredInner(object sender, EventArgs e)
         {
-            if (matchSuperVar.ballStorageNumber > 0)
-            {
-                matchSuperVar.ballStorageNumber--;
-                teleopBallStorageCounter.Text = matchSuperVar.ballStorageNumber.ToString();
-
-                matchSuperVar.teleopScores.Add(new MatchSuperVar.Score { scoreTime = timer.getTime(), scoreLocation = "Inner" });
-            }
+            teleopGenericInteraction(-1, () => matchSuperVar.teleopScores.Add(new MatchSuperVar.Score { scoreTime = timer.getTime(), scoreLocation = "Inner" }));
         }
 
         private void teleopBallScoredOuter(object sender, EventArgs e)
         {
-            if (matchSuperVar.ballStorageNumber > 0)
-            {
-                matchSuperVar.ballStorageNumber--;
-                teleopBallStorageCounter.Text = matchSuperVar.ballStorageNumber.ToString();
-
-                matchSuperVar.teleopScores.Add(new MatchSuperVar.Score { scoreTime = timer.getTime(), scoreLocation = "Outer" });
-            }
+            teleopGenericInteraction(-1, () => matchSuperVar.teleopScores.Add(new MatchSuperVar.Score { scoreTime = timer.getTime(), scoreLocation = "Outer" }));
         }
 
         private void teleopBallScoredBottom(object sender, EventArgs e)
         {
-            if (matchSuperVar.ballStorageNumber > 0)
-            {
-                matchSuperVar.ballStorageNumber--;
-                teleopBallStorageCounter.Text = matchSuperVar.ballStorageNumber.ToString();
-
-                matchSuperVar.teleopScores.Add(new MatchSuperVar.Score { scoreTime = timer.getTime(), scoreLocation = "Bottom" });
-            }
+            teleopGenericInteraction(-1, () => matchSuperVar.teleopScores.Add(new MatchSuperVar.Score { scoreTime = timer.getTime(), scoreLocation = "Bottom" }));
         }
 
         private void toggleControlPanelRotate(object sender, EventArgs e)
         {
-            matchSuperVar.controlPanelRotated = true;
+            matchSuperVar.controlPanelRotated = "a";
         }
 
         private void toggleControlPanelColorMatch(object sender, EventArgs e)
         {
-            matchSuperVar.controlPanelColorMatched = true;
+            matchSuperVar.controlPanelColorMatched = "a";
         }
 
         async void MatchScout05Init(object sender, EventArgs e)
