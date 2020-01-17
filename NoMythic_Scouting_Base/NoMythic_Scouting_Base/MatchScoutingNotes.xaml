@@ -4,12 +4,10 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="NoMythic_Scouting_Base.MatchScoutingNotes">
+             x:Class="NoMythic_Scouting_Base.MatchScoutingNotes"
+             Title="Notes">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Notes"
-                VerticalOptions="Start" 
-                HorizontalOptions="CenterAndExpand" />
 
             <Editor x:Name="autoEditor"
                     Placeholder="Enter Auto Notes Here"
@@ -38,6 +36,7 @@
                    FontSize="Medium"/>
 
             <Slider x:Name="defense"
+                    BackgroundColor="#F5E1FD"
                     Minimum="0"
                     Maximum="10"
                     ValueChanged="slideDefense"/>

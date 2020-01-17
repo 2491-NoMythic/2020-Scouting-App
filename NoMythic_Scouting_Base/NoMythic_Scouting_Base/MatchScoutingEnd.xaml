@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="NoMythic_Scouting_Base.MatchScoutingEnd">
+             x:Class="NoMythic_Scouting_Base.MatchScoutingEnd"
+             Title="QR Generator">
     <ContentPage.Content>
         <StackLayout Margin="20, 10, 20, 20"
                      x:Name="matchLayout">

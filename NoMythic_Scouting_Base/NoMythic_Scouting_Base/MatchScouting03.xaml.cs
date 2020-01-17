@@ -53,7 +53,7 @@ namespace NoMythic_Scouting_Base
 
         public void autoBallIntakeLoss(object sender, EventArgs e)
         {
-            autoGenericInteraction(-1, () => matchSuperVar.autoPickups.RemoveAt(matchSuperVar.teleopPickups.Count - 1));
+            autoGenericInteraction(-1, () => matchSuperVar.autoPickups.RemoveAt(matchSuperVar.autoPickups.Count - 1));
         }
 
         private void autoBallDropped(object sender, EventArgs e)

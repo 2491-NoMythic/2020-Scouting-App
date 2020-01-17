@@ -39,9 +39,10 @@ namespace NoMythic_Scouting_Base
 
         void MatchInput(object sender, EventArgs e)
         {
-            matchNum = Int32.Parse(((Editor)sender).Text);
-            matchSuperVar.matchNumFinal = ((Editor)sender).Text;
+            matchNum = Int32.Parse(((Entry)sender).Text);
+            matchSuperVar.matchNumFinal = ((Entry)sender).Text;
             int splitNum = config.deviceNum + ((matchNum - 1) * 6);
+
             if (scheduleInput.getSchedule() != null)
             {
                 matchSuperVar.matchTeamNum = scheduleInput.getSchedule().Split(',')[splitNum];
@@ -55,7 +56,10 @@ namespace NoMythic_Scouting_Base
 
         void MatchTeamInput(object sender, EventArgs e)
         {
-            matchSuperVar.matchTeamNum = ((Editor)sender).Text;
+            if (scheduleInput.getSchedule() == null)
+            {
+                matchSuperVar.matchTeamNum = ((Entry)sender).Text;
+            }
         }
 
         async void MatchScout02Init(object sender, EventArgs e)

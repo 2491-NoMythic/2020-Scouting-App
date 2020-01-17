@@ -4,25 +4,22 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="NoMythic_Scouting_Base.MatchScouting04">
+             x:Class="NoMythic_Scouting_Base.MatchScouting04"
+             Title="Teleop">
     <ContentPage.Content>
         <StackLayout Margin="20, 10, 20, 20">
-            <Label Text="Teleop"
-                   FontSize="Large"
-                   VerticalOptions="Start" 
-                   HorizontalOptions="CenterAndExpand" />
 
             <StackLayout Orientation="Horizontal">
                 <Button Text="-"
                         FontSize="Large"
-                        Clicked="teleopBallIntakeGain"/>
+                        Clicked="teleopBallIntakeLoss"/>
                 <Label x:Name="teleopBallStorageCounter"
                        Text="0"
                        FontSize="Large"
                        VerticalOptions="Center"/>
                 <Button Text="+"
                         FontSize="Large"
-                        Clicked="teleopBallIntakeLoss"/>
+                        Clicked="teleopBallIntakeGain"/>
             </StackLayout>
 
             <StackLayout Orientation="Horizontal">

@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using ZXing;
-using ZXing.Common;
-using ZXing.QrCode;
 using ZXing.Net.Mobile.Forms;
 
 namespace NoMythic_Scouting_Base
@@ -39,12 +32,12 @@ namespace NoMythic_Scouting_Base
             matchBarcode.BarcodeFormat = ZXing.BarcodeFormat.QR_CODE;
             matchBarcode.BarcodeOptions.Width = 600;
             matchBarcode.BarcodeOptions.Height = 600;
-            matchBarcode.BarcodeValue = matchSuperVar.matchNumFinal + "%%%" + matchSuperVar.matchTeamNum + "QQQ-+-&" 
-                + matchSuperVar.preloadedElementAmount + "%%%" + matchSuperVar.lineCrossed + "%%%" + matchSuperVar.listAutoPickups() + "%%%" + matchSuperVar.listAutoDrops() + "%%%" + matchSuperVar.listAutoScores() + "%%%" 
-                + matchSuperVar.listTeleopPickups() + "%%%" + matchSuperVar.listTeleopDrops() + "%%%" + matchSuperVar.listTeleopScores() + "%%%" +matchSuperVar.controlPanelRotated + "%%%" + matchSuperVar.controlPanelColorMatched + "%%%" 
-                + matchSuperVar.robotClimbed + "%%%" + matchSuperVar.shieldGeneratorBalanced + "%%%" + matchSuperVar.robotAssisted + "%%%" + matchSuperVar.assistedRobots + "%%%" + matchSuperVar.robotAssistAmount + "%%%" 
+            matchBarcode.BarcodeValue = matchSuperVar.matchNumFinal + "%%%" + matchSuperVar.matchTeamNum + "%%%" + matchSuperVar.matchNameInputString +"QQQ-+-&"
+                + matchSuperVar.preloadedElementAmount + "%%%" + matchSuperVar.lineCrossed + "%%%" + matchSuperVar.listAutoPickups() + "%%%" + matchSuperVar.listAutoDrops() + "%%%" + matchSuperVar.listAutoScores() + "%%%"
+                + matchSuperVar.listTeleopPickups() + "%%%" + matchSuperVar.listTeleopDrops() + "%%%" + matchSuperVar.listTeleopScores() + "%%%" + matchSuperVar.controlPanelRotated + "%%%" + matchSuperVar.controlPanelColorMatched + "%%%"
+                + matchSuperVar.robotClimbed + "%%%" + matchSuperVar.shieldGeneratorBalanced + "%%%" + matchSuperVar.robotAssisted + "%%%" + matchSuperVar.assistedRobots + "%%%" + matchSuperVar.robotAssistAmount + "%%%"
                 + matchSuperVar.autoNotes + "%%%" + matchSuperVar.teleopNotes + "%%%" + matchSuperVar.endgameNotes + "%%%" + matchSuperVar.defenseRating + "%%%" + matchSuperVar.controlPanelCrossing;
-
+            int len = matchBarcode.BarcodeValue.Length;
             matchLayout.Children.Insert(0, matchBarcode);
         }
 

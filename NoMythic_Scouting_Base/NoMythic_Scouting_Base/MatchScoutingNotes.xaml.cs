@@ -22,17 +22,17 @@ namespace NoMythic_Scouting_Base
 
         public void autoNotes(object sender, EventArgs e)
         {
-            autoEditor.Text = matchSuperVar.autoNotes;
+            matchSuperVar.autoNotes = ((Editor)sender).Text;
         }
 
         public void teleopNotes(object sender, EventArgs e)
         {
-            teleopEditor.Text = matchSuperVar.teleopNotes;
+            matchSuperVar.teleopNotes = ((Editor)sender).Text;
         }
 
         public void endgameNotes(object sender, EventArgs e)
         {
-            endgameEditor.Text = matchSuperVar.endgameNotes;
+            matchSuperVar.endgameNotes = ((Editor)sender).Text;
         }
         public void slideDefense(object sender, EventArgs e)
         {

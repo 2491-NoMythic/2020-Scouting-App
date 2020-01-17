@@ -4,24 +4,47 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="NoMythic_Scouting_Base.MatchScouting01">
+             x:Class="NoMythic_Scouting_Base.MatchScouting01"
+             Title="Please Enter Match Data">
     <ContentPage.Content>
         <StackLayout Margin="20, 10, 20, 20">
-            <Label Text="Please enter match data"
-                   FontSize="Large"
-                   HorizontalOptions="Center"/>
+
             <Picker x:Name="matchNameInputPicker"
                     Title="Input name"
                     SelectedIndexChanged="MatchNameInput">
                 <Picker.Items>
-                 <x:String>Example</x:String>
-                 <x:String>Example2</x:String>
+                    <x:String>Other</x:String>
+                    <x:String>Anna</x:String>
+                    <x:String>Connor</x:String>
+                    <x:String>Danny</x:String>
+                    <x:String>Elias</x:String>
+                    <x:String>Elizabeth</x:String>
+                    <x:String>Freya</x:String>
+                    <x:String>Hugh</x:String>
+                    <x:String>Julianna</x:String>
+                    <x:String>Kate</x:String>
+                    <x:String>Lando</x:String>
+                    <x:String>Lex</x:String>
+                    <x:String>Mara</x:String>
+                    <x:String>Max</x:String>
+                    <x:String>Miles</x:String>
+                    <x:String>Noah</x:String>
+                    <x:String>Owen</x:String>
+                    <x:String>Phoebe</x:String>
+                    <x:String>Rhys</x:String>
+                    <x:String>Sam</x:String>
+                    <x:String>Sean</x:String>
+                    <x:String>Vasyl</x:String>
+                    <x:String>Vincent</x:String>
+                    <x:String>Wesley</x:String>
+                    <x:String>Zalma</x:String>
                 </Picker.Items>
             </Picker>
-            <Editor Placeholder="Input match number"
+            <Entry  Placeholder="Input match number"
+                    Keyboard="Numeric"
                     Completed="MatchInput"/>
             <StackLayout Orientation="Horizontal">
-                <Label Text="Is there a schedule?"
+                <Label Text="Is there no valid schedule?"
                        FontSize="Medium"/>
                 <Label Text="{Binding IsToggled, Source={x:Reference scheduleToggle}}"
                        HorizontalOptions="EndAndExpand"
@@ -30,8 +53,9 @@
                         VerticalOptions="Start"
                         Toggled="DisplayRobotNum"/>
             </StackLayout>
-            <Editor x:Name="matchTeamNumInput"
+            <Entry x:Name="matchTeamNumInput"
                     Placeholder="Input team number"
+                    Keyboard="Numeric"
                     Completed="MatchTeamInput"/>
             <Button Text="Next"
                     VerticalOptions="EndAndExpand"

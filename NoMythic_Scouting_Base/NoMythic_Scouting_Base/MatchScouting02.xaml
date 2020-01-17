@@ -4,14 +4,10 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="NoMythic_Scouting_Base.MatchScouting02">
+             x:Class="NoMythic_Scouting_Base.MatchScouting02"
+             Title="Pre Game">
     <ContentPage.Content>
         <StackLayout Margin="20, 10, 20, 20">
-            
-            <Label Text="Pre Game"
-                   FontSize="Large"
-                   VerticalOptions="Start" 
-                   HorizontalOptions="CenterAndExpand" />
 
             <Picker x:Name="preloadedElements"
                     Title="Number of Preloaded Elements"
