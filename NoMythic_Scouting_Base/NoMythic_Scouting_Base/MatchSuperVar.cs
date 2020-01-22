@@ -39,7 +39,7 @@ namespace NoMythic_Scouting_Base
 
             public string ToMatchInfoString()
             {
-                return scoreTime.ToString() + "YYY" + scoreLocation.ToString();
+                return scoreTime.ToString() + "Y" + scoreLocation.ToString();
             }
         }
 
@@ -96,7 +96,7 @@ namespace NoMythic_Scouting_Base
 
         public delegate string ScoreConverter<T>(T item);
 
-        public string genericListScores<T>(List<T> interactionItems, ref string interactionAggregateString, string delimiter = "XXX") where T: IMatchInfoConvertable
+        public string genericListScores<T>(List<T> interactionItems, ref string interactionAggregateString, string delimiter = "X") where T: IMatchInfoConvertable
         {
             for (int i = 0; i < interactionItems.Count; i++)
             {

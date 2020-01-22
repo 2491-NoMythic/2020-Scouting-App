@@ -32,12 +32,14 @@ namespace NoMythic_Scouting_Base
             matchBarcode.BarcodeFormat = ZXing.BarcodeFormat.QR_CODE;
             matchBarcode.BarcodeOptions.Width = 600;
             matchBarcode.BarcodeOptions.Height = 600;
-            matchBarcode.BarcodeValue = matchSuperVar.matchNumFinal + "%%%" + matchSuperVar.matchTeamNum + "%%%" + matchSuperVar.matchNameInputString +"QQQ-+-&"
+            string finalMatchData = matchSuperVar.matchNumFinal + "%%%" + matchSuperVar.matchTeamNum + "%%%" + matchSuperVar.matchNameInputString +"QQQ-+-&"
                 + matchSuperVar.preloadedElementAmount + "%%%" + matchSuperVar.lineCrossed + "%%%" + matchSuperVar.listAutoPickups() + "%%%" + matchSuperVar.listAutoDrops() + "%%%" + matchSuperVar.listAutoScores() + "%%%"
                 + matchSuperVar.listTeleopPickups() + "%%%" + matchSuperVar.listTeleopDrops() + "%%%" + matchSuperVar.listTeleopScores() + "%%%" + matchSuperVar.controlPanelRotated + "%%%" + matchSuperVar.controlPanelColorMatched + "%%%"
                 + matchSuperVar.robotClimbed + "%%%" + matchSuperVar.shieldGeneratorBalanced + "%%%" + matchSuperVar.robotAssisted + "%%%" + matchSuperVar.assistedRobots + "%%%" + matchSuperVar.robotAssistAmount + "%%%"
                 + matchSuperVar.autoNotes + "%%%" + matchSuperVar.teleopNotes + "%%%" + matchSuperVar.endgameNotes + "%%%" + matchSuperVar.defenseRating + "%%%" + matchSuperVar.controlPanelCrossing;
+
             int len = matchBarcode.BarcodeValue.Length;
+            matchBarcode.BarcodeValue = finalMatchData;
             matchLayout.Children.Insert(0, matchBarcode);
         }
 
