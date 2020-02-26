@@ -13,8 +13,13 @@ namespace NoMythic_Scouting_Base
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ScheduleInput : ContentPage
     {
-        private string scheduleString;
+        private string scheduleString
+        {
+            get { return matchSuperVar.scheduleInput; }
+            set { matchSuperVar.scheduleInput = value; }
+        }
         public static ScheduleInput scheduleInput;
+        MatchSuperVar matchSuperVar;
 
         public static ScheduleInput getInstance()
         {
@@ -27,12 +32,13 @@ namespace NoMythic_Scouting_Base
 
         public string getSchedule()
         {
-            return this.scheduleString;
+            return scheduleString;
         }
 
         public ScheduleInput()
         {
             InitializeComponent();
+            matchSuperVar = MatchSuperVar.getInstance();
         }
 
         private void OpenScanner(object sender, EventArgs and)

@@ -24,22 +24,22 @@ namespace NoMythic_Scouting_Base
 
         public void toggleRobotClimb(object sender, EventArgs e) 
         {
-            matchSuperVar.robotClimbed = "a";
+            matchSuperVar.robotClimbed = "true";
         }
 
         public void toggleShieldGeneratorBalanced(object sender, EventArgs e)
         {
-            matchSuperVar.shieldGeneratorBalanced = "a";
+            matchSuperVar.shieldGeneratorBalanced = "true";
         }
 
         public void toggleRobotAssist(object sender, EventArgs e) 
         {
-            matchSuperVar.robotAssisted = "a";
+            matchSuperVar.robotAssisted = "true";
         }
 
         public void toggleAssistedRobots(object sender, EventArgs e)
         {
-            matchSuperVar.assistedRobots = "a";
+            matchSuperVar.assistedRobots = "true";
             robotAssistNumber.IsVisible = true;
         }
 

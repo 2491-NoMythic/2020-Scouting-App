@@ -41,7 +41,7 @@ namespace NoMythic_Scouting_Base
         {
             matchNum = Int32.Parse(((Entry)sender).Text);
             matchSuperVar.matchNumFinal = ((Entry)sender).Text;
-            int splitNum = config.deviceNum + ((matchNum - 1) * 6);
+            int splitNum = matchNum - 1;
 
             if (scheduleInput.getSchedule() != null)
             {

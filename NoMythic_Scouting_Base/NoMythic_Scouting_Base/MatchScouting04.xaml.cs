@@ -25,6 +25,7 @@ namespace NoMythic_Scouting_Base
 
         delegate void TeleopVoidFunc();
 
+        /*
         private void teleopGenericInteraction(int ballChange, TeleopVoidFunc updateTeleopList)
         {
             if (matchSuperVar.ballStorageNumber > 0)
@@ -34,48 +35,65 @@ namespace NoMythic_Scouting_Base
                 updateTeleopList();
             }
         }
+        */
+
+        private void teleopGenericInteraction(int ballChange, TeleopVoidFunc updateTeleopInteraction)
+        {
+            if (matchSuperVar.ballStorageNumber > 0)
+            {
+                matchSuperVar.ballStorageNumber += ballChange;
+                teleopBallStorageCounter.Text = matchSuperVar.ballStorageNumber.ToString();
+                updateTeleopInteraction();
+            }
+        }
+
 
         private void teleopBallIntakeGain(object sender, EventArgs e)
         {
             matchSuperVar.ballStorageNumber++;
             teleopBallStorageCounter.Text = matchSuperVar.ballStorageNumber.ToString();
 
-            matchSuperVar.teleopPickups.Add(new MatchSuperVar.Pickup { pickupTime = timer.getTime() });
+            //matchSuperVar.teleopPickups.Add(new MatchSuperVar.Pickup { pickupTime = timer.getTime() });
+            matchSuperVar.teleopPickupNumber++;
         }
 
         private void teleopBallIntakeLoss(object sender, EventArgs e)
         {
-            teleopGenericInteraction(-1, () => matchSuperVar.teleopPickups.RemoveAt(matchSuperVar.teleopPickups.Count - 1));
+            if (matchSuperVar.ballStorageNumber > 0)
+            {
+                matchSuperVar.ballStorageNumber--;
+                teleopBallStorageCounter.Text = matchSuperVar.ballStorageNumber.ToString();
+            }
         }
 
         private void teleopBallDropped(object sender, EventArgs e)
         {
-            teleopGenericInteraction(-1, () => matchSuperVar.teleopDrops.Add(new MatchSuperVar.Drop { dropTime = timer.getTime() }));
+            teleopGenericInteraction(-1, () => matchSuperVar.teleopDropNumber++);
         }
 
         private void teleopBallScoredInner(object sender, EventArgs e)
         {
-            teleopGenericInteraction(-1, () => matchSuperVar.teleopScores.Add(new MatchSuperVar.Score { scoreTime = timer.getTime(), scoreLocation = "Inner" }));
+            teleopGenericInteraction(-1, () => matchSuperVar.teleopScoreInnerNumber++);
         }
 
         private void teleopBallScoredOuter(object sender, EventArgs e)
         {
-            teleopGenericInteraction(-1, () => matchSuperVar.teleopScores.Add(new MatchSuperVar.Score { scoreTime = timer.getTime(), scoreLocation = "Outer" }));
+            teleopGenericInteraction(-1, () => matchSuperVar.teleopScoreOuterNumber++);
         }
 
         private void teleopBallScoredBottom(object sender, EventArgs e)
         {
-            teleopGenericInteraction(-1, () => matchSuperVar.teleopScores.Add(new MatchSuperVar.Score { scoreTime = timer.getTime(), scoreLocation = "Bottom" }));
+            teleopGenericInteraction(-1, () => matchSuperVar.teleopScoreLowerNumber++);
         }
 
         private void toggleControlPanelRotate(object sender, EventArgs e)
         {
-            matchSuperVar.controlPanelRotated = "a";
+            matchSuperVar.controlPanelRotated = "true";
         }
 
         private void toggleControlPanelColorMatch(object sender, EventArgs e)
         {
-            matchSuperVar.controlPanelColorMatched = "a";
+            matchSuperVar.controlPanelColorMatched = "true";
         }
 
         async void MatchScout05Init(object sender, EventArgs e)

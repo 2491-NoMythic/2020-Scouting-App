@@ -28,11 +28,12 @@ namespace NoMythic_Scouting_Base
 
         public void toggleLineCross(object sender, EventArgs e)
         {
-            matchSuperVar.lineCrossed = "a";
+            matchSuperVar.lineCrossed = "true";
         }
 
         delegate void AutoVoidFunc();
 
+        /*
         private void autoGenericInteraction(int ballChange, AutoVoidFunc updateAutoList)
         {
             if (matchSuperVar.ballStorageNumber > 0)
@@ -42,38 +43,53 @@ namespace NoMythic_Scouting_Base
                 updateAutoList();
             }
         }
+        */
+
+        private void autoGenericInteraction(int ballChange, AutoVoidFunc updateAutoInteraction)
+        {
+            if (matchSuperVar.ballStorageNumber > 0)
+            {
+                matchSuperVar.ballStorageNumber += ballChange;
+                autoBallStorageCounter.Text = matchSuperVar.ballStorageNumber.ToString();
+                updateAutoInteraction();
+            }
+        }
 
         public void autoBallIntakeGain(object sender, EventArgs e)
         {
             matchSuperVar.ballStorageNumber++;
             autoBallStorageCounter.Text = matchSuperVar.ballStorageNumber.ToString();
 
-            matchSuperVar.autoPickups.Add(new MatchSuperVar.Pickup { pickupTime = timer.getTime() });
+            matchSuperVar.autoPickupNumber++;
         }
 
         public void autoBallIntakeLoss(object sender, EventArgs e)
         {
-            autoGenericInteraction(-1, () => matchSuperVar.autoPickups.RemoveAt(matchSuperVar.autoPickups.Count - 1));
+            if (matchSuperVar.ballStorageNumber > 0)
+            {
+                matchSuperVar.ballStorageNumber--;
+                autoBallStorageCounter.Text = matchSuperVar.ballStorageNumber.ToString();
+            }
         }
 
         private void autoBallDropped(object sender, EventArgs e)
         {
-            autoGenericInteraction(-1, () => matchSuperVar.autoDrops.Add(new MatchSuperVar.Drop { dropTime = timer.getTime() }));
+            autoGenericInteraction(-1, () => matchSuperVar.autoDropNumber++);
         }
 
         private void autoBallScoredInner(object sender, EventArgs e)
         {
-            autoGenericInteraction(-1, () => matchSuperVar.autoScores.Add(new MatchSuperVar.Score { scoreTime = timer.getTime(), scoreLocation = "Inner" }));
+            autoGenericInteraction(-1, () => matchSuperVar.autoScoreInnerNumber++);
         }
 
         private void autoBallScoredOuter(object sender, EventArgs e)
         {
-            autoGenericInteraction(-1, () => matchSuperVar.autoScores.Add(new MatchSuperVar.Score { scoreTime = timer.getTime(), scoreLocation = "Outer" }));
+            autoGenericInteraction(-1, () => matchSuperVar.autoScoreOuterNumber++);
         }
 
         private void autoBallScoredBottom(object sender, EventArgs e)
         {
-            autoGenericInteraction(-1, () => matchSuperVar.autoScores.Add(new MatchSuperVar.Score { scoreTime = timer.getTime(), scoreLocation = "Bottom" }));
+            autoGenericInteraction(-1, () => matchSuperVar.autoScoreLowerNumber++);
         }
 
         async void MatchScout04Init(object sender, EventArgs e)

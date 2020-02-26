@@ -12,6 +12,7 @@ namespace NoMythic_Scouting_Base
     {
         private static MatchSuperVar matchSuperVar;
 
+        /*
         //Ball Interaction Classes and Arrays
         public class Pickup: IMatchInfoConvertable
         {
@@ -50,9 +51,11 @@ namespace NoMythic_Scouting_Base
         public List<Pickup> teleopPickups = new List<Pickup>();
         public List<Drop> teleopDrops = new List<Drop>();
         public List<Score> teleopScores = new List<Score>();
+        */
 
         //AppData
         public int ballStorageNumber = 0;
+        public string scheduleInput;
 
         //QR Data
             //Opening Screen
@@ -62,27 +65,37 @@ namespace NoMythic_Scouting_Base
             //Pregame
         public string preloadedElementAmount;
             //Auto
-        public string lineCrossed = "b";
-        public string autoPickupString;
-        public string autoDropString;
-        public string autoScoreString;
+        public string lineCrossed = "false";
+        //public string autoPickupString;
+        //public string autoDropString;
+        //public string autoScoreString;
+        public int autoPickupNumber = 0;
+        public int autoDropNumber = 0;
+        public int autoScoreLowerNumber = 0;
+        public int autoScoreOuterNumber = 0;
+        public int autoScoreInnerNumber = 0;
             //Teleop
-        public string controlPanelRotated = "b";
-        public string controlPanelColorMatched = "b";
-        public string teleopPickupString;
-        public string teleopDropString;
-        public string teleopScoreString;
+        public string controlPanelRotated = "false";
+        public string controlPanelColorMatched = "false";
+        //public string teleopPickupString;
+        //public string teleopDropString;
+        //public string teleopScoreString;
+        public int teleopPickupNumber = 0;
+        public int teleopDropNumber = 0;
+        public int teleopScoreLowerNumber = 0;
+        public int teleopScoreOuterNumber = 0;
+        public int teleopScoreInnerNumber = 0;
             //Endgame
-        public string robotClimbed = "b";
-        public string shieldGeneratorBalanced = "b";
-        public string robotAssisted = "b";
-        public string assistedRobots = "b";
+        public string robotClimbed = "false";
+        public string shieldGeneratorBalanced = "false";
+        public string robotAssisted = "false";
+        public string assistedRobots = "false";
         public string robotAssistAmount;
             //Notes
         public string autoNotes;
         public string teleopNotes;
         public string endgameNotes;
-        public string controlPanelCrossing = "b";
+        public string controlPanelCrossing = "false";
         public string defenseRating;
 
         public static MatchSuperVar getInstance()
@@ -94,6 +107,7 @@ namespace NoMythic_Scouting_Base
             return matchSuperVar;
         }
 
+        /*
         public delegate string ScoreConverter<T>(T item);
 
         public string genericListScores<T>(List<T> interactionItems, ref string interactionAggregateString, string delimiter = "X") where T: IMatchInfoConvertable
@@ -134,5 +148,6 @@ namespace NoMythic_Scouting_Base
         {
             return genericListScores(matchSuperVar.teleopPickups, ref matchSuperVar.teleopPickupString);
         }
+        */
     }
 }
