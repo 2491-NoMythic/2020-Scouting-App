@@ -46,6 +46,7 @@ namespace NoMythic_Scouting_Base
             if (scheduleInput.getSchedule() != null)
             {
                 matchSuperVar.matchTeamNum = scheduleInput.getSchedule().Split(',')[splitNum];
+                teamNumDisplay.Text = matchSuperVar.matchTeamNum;
             }
         }      
 
@@ -59,6 +60,7 @@ namespace NoMythic_Scouting_Base
             if (scheduleInput.getSchedule() == null)
             {
                 matchSuperVar.matchTeamNum = ((Entry)sender).Text;
+                teamNumDisplay.Text = matchSuperVar.matchTeamNum;
             }
         }
 

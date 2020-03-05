@@ -57,6 +57,10 @@
                     Placeholder="Input team number"
                     Keyboard="Numeric"
                     Completed="MatchTeamInput"/>
+            <Label x:Name="teamNumDisplay"
+                   Text=""
+                   FontSize="Large"
+                   VerticalOptions="End"/>
             <Button Text="Next"
                     VerticalOptions="EndAndExpand"
                     Clicked="MatchScout02Init"

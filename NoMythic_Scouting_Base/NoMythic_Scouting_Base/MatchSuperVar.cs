@@ -90,7 +90,7 @@ namespace NoMythic_Scouting_Base
         public string shieldGeneratorBalanced = "false";
         public string robotAssisted = "false";
         public string assistedRobots = "false";
-        public string robotAssistAmount;
+        public string robotAssistAmount = "0";
             //Notes
         public string autoNotes;
         public string teleopNotes;
